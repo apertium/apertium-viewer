@@ -352,6 +352,7 @@ public class ApertiumView extends javax.swing.JFrame {
 			markUnknownWordsMenuItem.setSelected(prefs.getBoolean("markUnknownWords", true));
 			showCommandsMenuItem.setSelected(prefs.getBoolean("showCommands", true));
 			transferRuleTracingMenuItem.setSelected(prefs.getBoolean("transferRuleTracing", true));
+			useJavaVersion.setSelected(prefs.getBoolean("useJavaVersion", false));
 
 			for (int i = 0; i < 10; i++) {
 				final String s = prefs.get("storedTexts." + i, "");
@@ -489,6 +490,7 @@ public class ApertiumView extends javax.swing.JFrame {
 		prefs.putBoolean("markUnknownWords", markUnknownWordsMenuItem.isSelected());
 		prefs.putBoolean("transferRuleTracing", transferRuleTracingMenuItem.isSelected());
 		prefs.putBoolean("local", local);
+		prefs.putBoolean("useJavaVersion", useJavaVersion.isSelected());
 
 		String remains = modeFiles;
 		int n = 0;
@@ -1035,7 +1037,6 @@ public class ApertiumView extends javax.swing.JFrame {
     jLabelUse.setText("Use");
 
     buttonGroup2.add(useJavaVersion);
-    useJavaVersion.setSelected(true);
     useJavaVersion.setText("Java");
     useJavaVersion.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1045,6 +1046,7 @@ public class ApertiumView extends javax.swing.JFrame {
 
     buttonGroup2.add(useCppVersion);
     useCppVersion.setText("C++ version");
+    useCppVersion.setSelected(true);
     useCppVersion.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         useCppVersionActionPerformed(evt);
